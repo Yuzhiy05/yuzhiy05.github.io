@@ -5,13 +5,17 @@
   
 
   
-  <title>Archives: 2022/12 | Hexo</title>
+  <title>pagec++study | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2022/12/index.html">
+  <meta name="description" content="同样的，我们需要先通过搜索找到相应的值，存在则进行删除，需要考虑删除以后的情况， 如果该结点拥有关键字数量仍然满足B树性质，则不做任何处理；如果该结点在删除关键字以后不满足B树的性质（关键字没有到达ceil(m&#x2F;2)-1的数量），则需要向兄弟结点借关键字，这有分为兄弟结点的关键字数量是否足够的情况。如果兄弟结点的关键字足够借给该结点，则过程为将父亲结点的关键字下移，兄弟结点的关键字上移；如果兄弟结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pagec++study">
+<meta property="og:url" content="http://example.com/2022/12/29/pagec-study/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="同样的，我们需要先通过搜索找到相应的值，存在则进行删除，需要考虑删除以后的情况， 如果该结点拥有关键字数量仍然满足B树性质，则不做任何处理；如果该结点在删除关键字以后不满足B树的性质（关键字没有到达ceil(m&#x2F;2)-1的数量），则需要向兄弟结点借关键字，这有分为兄弟结点的关键字数量是否足够的情况。如果兄弟结点的关键字足够借给该结点，则过程为将父亲结点的关键字下移，兄弟结点的关键字上移；如果兄弟结">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-12-29T15:29:23.000Z">
+<meta property="article:modified_time" content="2022-12-29T15:29:53.839Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -62,40 +66,43 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2022/12/29/pagec-study/" class="archive-article-date">
-  <time datetime="2022-12-29T15:29:23.000Z" itemprop="datePublished">Dec 29</time>
+        <section id="main"><article id="post-pagec-study" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2022/12/29/pagec-study/" class="article-date">
+  <time datetime="2022-12-29T15:29:23.000Z" itemprop="datePublished">2022-12-29</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2022/12/29/pagec-study/">pagec++study</a>
+    <h1 class="article-title" itemprop="name">
+      pagec++study
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>同样的，我们需要先通过搜索找到相应的值，存在则进行删除，需要考虑删除以后的情况，</p>
+<p>如果该结点拥有关键字数量仍然满足B树性质，则不做任何处理；<br>如果该结点在删除关键字以后不满足B树的性质（关键字没有到达ceil(m/2)-1的数量），则需要向兄弟结点借关键字，这有分为兄弟结点的关键字数量是否足够的情况。<br>如果兄弟结点的关键字足够借给该结点，则过程为将父亲结点的关键字下移，兄弟结点的关键字上移；<br>如果兄弟结点的关键字在借出去以后也无法满足情况，即之前兄弟结点的关键字的数量为ceil(m/2)-1，借的一方的关键字数量为ceil(m/2)-2的情况，那么我们可以将该结点合并到兄弟</p>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2022/12/29/pagec-study/" data-id="clc98t3te0000b8uy14pu2398" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+  
+</article>
 
 </section>
         
