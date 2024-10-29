@@ -33,6 +33,10 @@ jobs:
           # 缓存 pnpm 依赖
           cache: pnpm
 
+
+      # 启动服务器
+      - name: start server
+        run: pnpm  docs:dev
       # 运行构建脚本
       - name: Build VuePress site
         run: pnpm docs:build
