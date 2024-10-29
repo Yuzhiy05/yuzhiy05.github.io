@@ -1,44 +1,17 @@
-name: docs
-
-on:
-  # 每当 push 到 main 分支时触发部署
-  push:
-    branches: [main]
-  # 手动触发部署
-  workflow_dispatch:
-
+name: Build and Deploy
+on: [push]
 jobs:
-  docs:
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-        with:
-          # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
-          fetch-depth: 0
+    - name: Checkout
+      uses: actions/checkout@master
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          # 选择要使用的 pnpm 版本
-          version: 8
-          # 使用 pnpm 安装依赖
-          run_install: true
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          # 选择要使用的 node 版本
-          node-version: 22
-          # 缓存 pnpm 依赖
-          cache: pnpm
-
-
-      - name: vuepress-deploy
-        uses: jenkey2011/vuepress-deploy@master
-          env:
+    - name: vuepress-deploy
+      uses: jenkey2011/vuepress-deploy@master
+      env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         TARGET_REPO: username/repo
-        TARGET_BRANCH: main
+        TARGET_BRANCH: master
         BUILD_SCRIPT: yarn && yarn build
         BUILD_DIR: blog/.vuepress/dist/
