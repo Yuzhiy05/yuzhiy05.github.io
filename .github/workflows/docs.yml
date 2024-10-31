@@ -32,12 +32,7 @@ jobs:
           node-version: 20
           # cache deps for pnpm
           cache: pnpm
-
-          #安装依赖
-      - name: pnpm install
-        run: pnpm install
-        
-
+          
       # run build script
       - name: Build VuePress site
         run: pnpm docs:build
