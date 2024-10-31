@@ -9,7 +9,7 @@ on:
 
 jobs:
   docs:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
           # choose pnpm version to use
           version: 9
           # install deps with pnpm
-          run_install: false
+          run_install: true
         
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -35,6 +35,8 @@ jobs:
           
       # run build script
       - name: Build VuePress site
+        env:
+          NODE_OPTIONS: --max_old_space_size=8192
         run: pnpm docs:build
 
       # please check out the docs of the workflow for more details
