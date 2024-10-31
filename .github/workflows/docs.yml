@@ -9,7 +9,7 @@ on:
 
 jobs:
   docs:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -21,10 +21,10 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           # choose pnpm version to use
-          version: 8
+          version: 9
           # install deps with pnpm
-          run_install: true
-
+          run_install: false
+        
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -32,6 +32,11 @@ jobs:
           node-version: 20
           # cache deps for pnpm
           cache: pnpm
+
+          #安装依赖
+      - name: pnpm install
+        run: pnpm install
+        
 
       # run build script
       - name: Build VuePress site
