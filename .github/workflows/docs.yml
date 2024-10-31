@@ -24,7 +24,10 @@ jobs:
           version: 8
           # install deps with pnpm
           run_install: true
-
+        #安装依赖
+      - name: pnpm install
+        run: pnpm install
+        
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -33,9 +36,6 @@ jobs:
           # cache deps for pnpm
           cache: pnpm
 
-      - name: pnpm intall
-        run: pnpm intall 
-        
       # run build script
       - name: Build VuePress site
         run: pnpm docs:build
