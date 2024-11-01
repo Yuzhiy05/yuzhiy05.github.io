@@ -4,7 +4,8 @@ on:
   # trigger deployment on every push to main branch
   push:
     branches: [main]
-permissions: read-all|write-all
+# trigger deployment manually
+  workflow_dispatch:
 
 jobs:
   docs:
