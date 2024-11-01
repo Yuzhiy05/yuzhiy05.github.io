@@ -4,10 +4,8 @@ on:
   # trigger deployment on every push to main branch
   push:
     branches: [main]
-   
-  # trigger deployment manually
-  workflow_dispatch:
 permissions: read-all|write-all
+
 jobs:
   docs:
     runs-on: ubuntu-latest
