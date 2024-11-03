@@ -2,6 +2,8 @@
 lang: zh-CN
 title: c++编程语言第四版
 description: c++编程语言第四版导读
+createTime: 2024/11/02 12:45:16
+permalink: /article/j3qgcpng/
 ---
 
 # c++之旅

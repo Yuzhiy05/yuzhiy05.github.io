@@ -1,12 +1,17 @@
 import { viteBundler } from '@vuepress/bundler-vite'
-import { defaultTheme } from '@vuepress/theme-default'
+import theme from './theme.js'
 import { defineUserConfig } from 'vuepress'
 
-export default defineUserConfig({
-  bundler: viteBundler(),
-  theme: defaultTheme(),
 
-  lang: 'zh-CN',
-  title: '你好， VuePress ！',
-  description: '这是我的第一个 VuePress 站点',
+export default defineUserConfig({
+  
+  //theme: defaultTheme(),
+   lang: 'zh-CN',
+   locales: {
+    '/': { lang: 'zh-CN', title: 'Yuzhiy', description: 'Yuzhiy blog' },
+  },
+  head: [['link', { rel: 'icon', href: '/jager.ico' }]],
+  theme,
+  bundler: viteBundler(),
+  
 })
