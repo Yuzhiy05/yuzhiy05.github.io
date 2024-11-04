@@ -1,4 +1,4 @@
----
+<!-- ---
 home: true
 config:
   - 
@@ -20,7 +20,7 @@ config:
          text: github
          theme: alt
          link: https://github.com/Yuzhiy05/Yuzhiy05.github.io
----
+--- -->
 
 ### 111
 11111111111111111111111111111111

@@ -5,8 +5,8 @@ import navbar from './navbar.js'
 
 export default defineThemeConfig({
   logo: '/pro2.png',
-  docsRepo: 'https://github.com/Yuzhiy05/Yuzhiy05.github.io',
-  docsDir: 'docs',
+  // docsRepo: 'https://github.com/Yuzhiy05/Yuzhiy05.github.io',
+  // docsDir: 'docs',
   navbar,
   notes,
 
