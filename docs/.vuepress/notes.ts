@@ -4,7 +4,7 @@ import { defineNoteConfig, defineNotesConfig } from 'vuepress-theme-plume'
  * 配置 单个 note
  */
 const test1 = defineNoteConfig({
-  dir: '1.test1',
+  dir: '/',
   link: '/1.test1/',
   sidebar: [
     '/chapter3-4.md',

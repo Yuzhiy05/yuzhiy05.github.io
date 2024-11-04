@@ -9,7 +9,7 @@ config:
       dark: 0.3
     hero:
       name: Yuzhiy
-      tagline: cpp Developer
+      tagline: Cpp Developer
       text: 我心匪石不可转，我心匪席不可卷
       actions:
         -
@@ -21,6 +21,3 @@ config:
           link: https://github.com/Yuzhiy05
           theme: alt
 ---
-
-### 111
-11111111111111111111111111111111
