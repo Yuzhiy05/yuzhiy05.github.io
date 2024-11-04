@@ -3,7 +3,7 @@ home: true
 config:
   -
     type: banner
-    # banner: https://api.pengzhanbo.cn/wallpaper/bing
+    banner: https://api.pengzhanbo.cn/wallpaper/bing
     bannerMask:
       light: 0.1
       dark: 0.3
