@@ -3,7 +3,7 @@ home: true
 config:
   -
     type: banner
-    banner: /bingwallpaper.png
+    banner: https://bing.img.run/uhd.php
     bannerMask:
       light: 0.1
       dark: 0.3
