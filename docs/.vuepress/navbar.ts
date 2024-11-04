@@ -69,21 +69,21 @@ export default defineNavbarConfig([
     icon: 'icon-park-solid:bookshelf',
     items: [
       {
-        text: '1111',
-        link: '/1.tets1/',
-        activeMatch: '^/1.test1',
+        text: '线性代数',
+        link: '/tets1/',
+        activeMatch: '^/test1',
         icon: 'emojione:memo',
       },
       {
-        text: '222',
-        link: '/defensive-css/',
-        activeMatch: '^/defensive-css/',
+        text: '微分方程',
+        link: '/test2/',
+        activeMatch: '^/test2/',
         icon: 'streamline:css-three',
       },
       {
-        text: '333',
-        link: '/interview-question/',
-        activeMatch: '^/interview-question/',
+        text: '解析几何',
+        link: '/test1/',
+        activeMatch: '^/test1/',
         icon: 'codicon:comment-unresolved',
       },
     //   {
