@@ -1,26 +1,17 @@
-<!-- ---
+---
 home: true
 config:
-  - 
-    type: baner
-    baner: https://api.pengzhanbo.cn/wallpaper/bing
+  -
+    type: banner
+    # banner: https://api.pengzhanbo.cn/wallpaper/bing
     bannerMask:
       light: 0.1
       dark: 0.3
     hero:
-      name: Yuzhiy'blog
-      tagline: 繁星似海 熠熠生辉
-      text: Yuzhiy的blog
-      actions:
-        - 
-         text: 博客
-         theme: brand
-         link: https://yuzhiy05.github.io/
-        -
-         text: github
-         theme: alt
-         link: https://github.com/Yuzhiy05/Yuzhiy05.github.io
---- -->
+      name: Yuzhiy
+      tagline: Front End Developer
+      text: 即使慢，驰而不息，纵会落后，纵会失败，但必须能够到达他所向的目标。
+---
 
 ### 111
 11111111111111111111111111111111
