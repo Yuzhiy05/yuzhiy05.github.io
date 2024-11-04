@@ -5,7 +5,7 @@ import { defineNoteConfig, defineNotesConfig } from 'vuepress-theme-plume'
  */
 const test1 = defineNoteConfig({
   dir: '/',
-  link: '/1.test1/',
+  link: '/test1/',
   sidebar: [
     '/chapter3-4.md',
     '/exception.md',
