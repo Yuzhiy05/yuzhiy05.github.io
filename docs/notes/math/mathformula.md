@@ -1,3 +1,8 @@
+---
+title: mathformula
+createTime: 2024/11/05 19:34:51
+permalink: /test1/uvq714jb/
+---
 ## 整理一些常用的数学公式
 
 1.三角函数公式  
