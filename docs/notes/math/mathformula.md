@@ -33,7 +33,20 @@ $$
 例如 $\sin x$的图像过原点，在$\sin(\frac{\pi}{2})$时到最大值`1`,过$\pi$时为`0`，过$\frac{3\pi}{2}$时为最小值`-1`。当$f(x+\frac{\pi}{2})$时图像左移，因为三角函数为周期函数的性质。  
 原先$f(0)$现在为$f(0+\frac{\pi}{2})$,原先为$f(\frac{\pi}{2})$现在为$f(\frac{\pi}{2}+\frac{\pi}{2})$,原先$f(\pi)$现在为$f(\pi+\frac{\pi}{2})$对三角函数某些特殊点的推论可以看出函数向左移动了
 
-1.$$
+1.
+$\huge\sin(\theta+\frac{\pi}{2})=\cos\theta \\
+\cos(\theta+\frac{\pi}{2})=-\sin\theta \\
+\sin(\frac{\pi}{2}-\theta)=-\sin(\theta-\frac{\pi}{2})=-(-\cos\theta)=\cos\theta\\
+\cos(\frac{\pi}{2}-\theta)=\cos(\theta-\frac{\pi}{2})=\sin\theta$
+
+2.和差化积   
+$\huge\sin\alpha+\sin\beta=2\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}\\
+\sin\alpha-\sin\beta=2\cos\frac{\alpha+\beta}{2}\sin\frac{\alpha-\beta}{2}\\
+\cos\alpha+\cos\beta=2\cos\frac{\alpha+\beta}{2}\sin\frac{\alpha+\beta}{2}\\
+\cos\alpha-\cos\beta=-2\sin\frac{\alpha+\beta}{2}\sin\frac{\alpha-\beta}{2}$
+
+2.1 正弦相关
+$\huge\tan\alpha$
 
 $\mathrm{Rt}\triangle$
 
