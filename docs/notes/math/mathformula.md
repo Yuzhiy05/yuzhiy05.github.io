@@ -42,11 +42,41 @@ $\huge\sin(\theta+\frac{\pi}{2})=\cos\theta \\
 2.和差化积   
 $\huge\sin\alpha+\sin\beta=2\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}\\
 \sin\alpha-\sin\beta=2\cos\frac{\alpha+\beta}{2}\sin\frac{\alpha-\beta}{2}\\
-\cos\alpha+\cos\beta=2\cos\frac{\alpha+\beta}{2}\sin\frac{\alpha+\beta}{2}\\
+\cos\alpha+\cos\beta=2\cos\frac{\alpha+\beta}{2}\cos\frac{\alpha+\beta}{2}\\
 \cos\alpha-\cos\beta=-2\sin\frac{\alpha+\beta}{2}\sin\frac{\alpha-\beta}{2}$
 
-2.1 正弦相关
-$\huge\tan\alpha$
+2.1 正弦相关    
+
+$\huge\tan\alpha+\tan\beta=\frac{\sin(\alpha+\beta)}{\cos\alpha\cos\beta}\\
+\tan\alpha-\tan\beta=\frac{\sin(\alpha-\beta)}{\cos\alpha\cos\beta}\\
+\cot\alpha+\cot\beta=\frac{\sin(\alpha+\beta)}{\sin\alpha\sin\beta}\\
+\cot\alpha-\cot\beta=-\frac{\sin(\alpha-\beta)}{\sin\alpha\sin\beta}\\
+\tan\alpha+\cot\beta=\frac{\cos(\alpha-\beta)}{\cos\alpha\sin\beta}\\
+\tan\alpha-\cot\beta=-\frac{\cos(\alpha+\beta)}{\cos\alpha\sin\beta}$
+
+2.1.1
+
+证明:  
+$\LARGE\alpha=\frac{\alpha+\beta}{2}+\frac{\alpha-\beta}{2}\\
+\beta=\frac{\alpha+\beta}{2}-\frac{\alpha-\beta}{2}$  
+利用上述两角和差正余弦公式  
+$\LARGE\sin\alpha+\sin\beta=\sin(\frac{\alpha+\beta}{2}+\frac{\alpha-\beta}{2})+\sin(\frac{\alpha+\beta}{2}-\frac{\alpha-\beta}{2})\\
+=\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}+\cos\frac{\alpha-\beta}{2}\sin\frac{\alpha-\beta}{2}+\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha+\beta}{2}-\cos\frac{\alpha-\beta}{2}\sin\frac{\alpha-\beta}{2}\\
+=2\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}$
+
+2.2积化和差
+
+$\huge\sin\alpha\cos\beta=\frac{1}{2}[\sin(\alpha+\beta)+\sin(\alpha-\beta)]\\
+\cos\alpha\sin\beta=\frac{1}{2}[\sin(\alpha+\beta)-\sin(\alpha-\beta)]\\
+\cos\alpha\cos\beta=\frac{1}{2}[\cos(\alpha+\beta)+\cos(\alpha-\beta)]\\
+\sin\alpha\sin\beta=-\frac{1}{2}[\cos(\alpha+\beta)-\cos(\alpha-\beta)]$
+
+2.2.1  
+证明:  
+$\LARGE\frac{1}{2}[\sin(\alpha+\beta)+\sin(\alpha-\beta)]\\
+=\frac{1}{2}[\sin\alpha\cos\beta+\cos\alpha\sin\beta+\sin\alpha\cos\beta-\sin\alpha\cos\beta]\\
+=\sin\alpha\cos\beta$
+
 
 $\mathrm{Rt}\triangle$
 
