@@ -75,13 +75,13 @@ export default defineNavbarConfig([
         icon: 'emojione:memo',
       },
       {
-        text: '微分方程',
-        link: '/test2/',
-        activeMatch: '^/test2/',
+        text: '数据结构',
+        link: '/data_struct/',
+        activeMatch: '^/data_struct/',
         icon: 'streamline:css-three',
       },
       {
-        text: '解析几何',
+        text: '数学',
         link: '/math/',
         activeMatch: '^/math/',
         icon: 'codicon:comment-unresolved',

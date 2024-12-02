@@ -17,6 +17,20 @@ const test1 = defineNoteConfig({
     },
   ],
 })
+const data_struct = defineNoteConfig({
+  dir: 'data_struct',
+  link: '/data_struct/',
+  sidebar: [
+    {
+      text: '数据结构',
+      link:'/data_stuct/',
+      items:[
+      'map_str.md',
+      // 'exception.md',
+      ],
+    },
+  ],
+})
 const math = defineNoteConfig({
   dir: 'math',
   link: '/math/',
@@ -39,5 +53,5 @@ export default defineNotesConfig({
   dir: '/notes/',
   link: '/',
   // 在这里添加 note 配置
-  notes: [test1,math] 
+  notes: [test1,data_struct,math] 
 })

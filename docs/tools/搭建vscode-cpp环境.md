@@ -75,7 +75,8 @@ ide的本质还是在终端调用对应编译器的命令来进行编译的,`tas
 2.`lable`任务标签,你可以按你喜欢的方式取名字   
 3.`command`实际执行的命令,如果你像环境变量添加了某些路径那么不需要将完整路径写出,如上文的 `g++ -g ...`       
 4.` args ` 不是必要的,某些命令就不需要参数,如执行在本地exe程序 
-`./main.exe`，你可以直接写入在commnd中而不需要任何参数
+`./main.exe`，你可以直接写入在commnd中而不需要任何参数   
+5.
 
 [task.json具体参数](https://code.visualstudio.com/docs/editor/tasks-appendix)
 ### 常见问题:

@@ -9,7 +9,7 @@ export default plumeTheme({
       lineNumbers: 10,
       languages: ["cpp", "powershell", "bash", "cmd"],
     },
-    markdownEnhance: { demo: true },
+    markdownEnhance: { demo: true, mermaid: true, },
     markdownPower: { caniuse: true, jsfiddle: true,fileTree: true, // :::file-tree  文件树容器
       plot: true, 
       // !!plot!! 隐秘文本
