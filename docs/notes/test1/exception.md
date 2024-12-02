@@ -1,7 +1,7 @@
 ---
 title: exception
 createTime: 2024/11/02 23:47:43
-permalink: /article/7pbl8nev/
+permalink: /test1/exception/
 ---
 # 函数什么时候应该抛异常，noexcept标注
 1.标准库之前一直遵守lakos规则。

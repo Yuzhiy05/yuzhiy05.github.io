@@ -1,7 +1,7 @@
 ---
 title: chapter3-4
 createTime: 2024/11/02 23:46:13
-permalink: /article/b9hhih4a/
+permalink: /test1/chapter3-4/
 ---
 # 用户定义类
 ### concrete class

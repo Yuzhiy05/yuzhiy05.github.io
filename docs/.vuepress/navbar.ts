@@ -70,7 +70,7 @@ export default defineNavbarConfig([
     items: [
       {
         text: '线性代数',
-        link: '/tets1/',
+        link: '/test1/',
         activeMatch: '^/test1',
         icon: 'emojione:memo',
       },
@@ -82,8 +82,8 @@ export default defineNavbarConfig([
       },
       {
         text: '解析几何',
-        link: '/test1/',
-        activeMatch: '^/test1/',
+        link: '/math/',
+        activeMatch: '^/math/',
         icon: 'codicon:comment-unresolved',
       },
     //   {

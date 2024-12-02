@@ -4,11 +4,30 @@ import { defineNoteConfig, defineNotesConfig } from 'vuepress-theme-plume'
  * 配置 单个 note
  */
 const test1 = defineNoteConfig({
-  dir: '/',
+  dir: 'test1',
   link: '/test1/',
   sidebar: [
-    '/chapter3-4.md',
-    '/exception.md',
+    {
+      text: 'test1',
+      link:'/test1/',
+      items:[
+      'chapter3-4.md',
+      'exception.md',
+      ],
+    },
+  ],
+})
+const math = defineNoteConfig({
+  dir: 'math',
+  link: '/math/',
+  sidebar: [
+    {
+      text: 'math',
+      link:'/math/',
+      items:[
+       'mathformula.md'
+      ],
+    },
   ]
 })
 
@@ -20,5 +39,5 @@ export default defineNotesConfig({
   dir: '/notes/',
   link: '/',
   // 在这里添加 note 配置
-  notes: [test1] 
+  notes: [test1,math] 
 })

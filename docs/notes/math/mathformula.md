@@ -1,27 +1,27 @@
 ---
 title: mathformula
 createTime: 2024/11/05 19:34:51
-permalink: /test1/uvq714jb/
+permalink: /math/mathformula/
 ---
 ## 整理一些常用的数学公式
 
 1.三角函数公式  
-$\huge\sec x=\frac{1}{\cos x}$  
-$\huge\csc x=\frac{1}{\sin x}$   
-$\huge\cot x=\frac{1}{\tan x}$
+$\LARGE\sec x=\frac{1}{\cos x}$  
+$\LARGE\csc x=\frac{1}{\sin x}$   
+$\LARGE\cot x=\frac{1}{\tan x}$
 
-$\huge\sin ^{2}\theta+\cos^{2}\theta=1$
+$\LARGE\sin ^{2}\theta+\cos^{2}\theta=1$
 
-$\huge 1+\tan^{2}\theta=\sec^{2}\theta$
+$\LARGE 1+\tan^{2}\theta=\sec^{2}\theta$
 
-$\huge 1+\cot^{2}\theta=\csc^{2}\theta$   
+$\LARGE 1+\cot^{2}\theta=\csc^{2}\theta$   
 
-$\huge\sin2\theta=2\sin\theta\cos\theta$
+$\LARGE\sin2\theta=2\sin\theta\cos\theta$
 
-$\huge\cos2\theta=\cos^{2}\theta-\sin^{2}\theta=2\cos^{2}\theta-1=1-2\sin^{2}\theta$
+$\LARGE\cos2\theta=\cos^{2}\theta-\sin^{2}\theta=2\cos^{2}\theta-1=1-2\sin^{2}\theta$
 
  万能公式  
-$$\huge 令 t=\tan\frac{x}{2} ,则有 \sin x=\frac{2t}{1+t^{2}},\cos x=\frac{1-t^2}{1+t^{2}}\\\\   
+$$\LARGE 令 t=\tan\frac{x}{2} ,则有 \sin x=\frac{2t}{1+t^{2}},\cos x=\frac{1-t^2}{1+t^{2}}\\\\   
 \sin(\alpha\pm\beta)=\sin\alpha\cos\beta\pm\cos\alpha\sin\beta\\\\
 \cos(\alpha\pm\beta)=\cos\alpha\cos\beta\mp\sin\alpha\sin\beta\\\\
 \tan(\alpha\pm\beta)=\frac{\tan\alpha\pm\tan\beta}{1\mp\tan\alpha\tan\beta}
@@ -34,20 +34,20 @@ $$
 原先$f(0)$现在为$f(0+\frac{\pi}{2})$,原先为$f(\frac{\pi}{2})$现在为$f(\frac{\pi}{2}+\frac{\pi}{2})$,原先$f(\pi)$现在为$f(\pi+\frac{\pi}{2})$对三角函数某些特殊点的推论可以看出函数向左移动了
 
 1.
-$\huge\sin(\theta+\frac{\pi}{2})=\cos\theta \\
+$\LARGE\sin(\theta+\frac{\pi}{2})=\cos\theta \\
 \cos(\theta+\frac{\pi}{2})=-\sin\theta \\
 \sin(\frac{\pi}{2}-\theta)=-\sin(\theta-\frac{\pi}{2})=-(-\cos\theta)=\cos\theta\\
 \cos(\frac{\pi}{2}-\theta)=\cos(\theta-\frac{\pi}{2})=\sin\theta$
 
 2.和差化积   
-$\huge\sin\alpha+\sin\beta=2\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}\\
+$\LARGE\sin\alpha+\sin\beta=2\sin\frac{\alpha+\beta}{2}\cos\frac{\alpha-\beta}{2}\\
 \sin\alpha-\sin\beta=2\cos\frac{\alpha+\beta}{2}\sin\frac{\alpha-\beta}{2}\\
 \cos\alpha+\cos\beta=2\cos\frac{\alpha+\beta}{2}\cos\frac{\alpha+\beta}{2}\\
 \cos\alpha-\cos\beta=-2\sin\frac{\alpha+\beta}{2}\sin\frac{\alpha-\beta}{2}$
 
 2.1 正弦相关    
 
-$\huge\tan\alpha+\tan\beta=\frac{\sin(\alpha+\beta)}{\cos\alpha\cos\beta}\\
+$\LARGE\tan\alpha+\tan\beta=\frac{\sin(\alpha+\beta)}{\cos\alpha\cos\beta}\\
 \tan\alpha-\tan\beta=\frac{\sin(\alpha-\beta)}{\cos\alpha\cos\beta}\\
 \cot\alpha+\cot\beta=\frac{\sin(\alpha+\beta)}{\sin\alpha\sin\beta}\\
 \cot\alpha-\cot\beta=-\frac{\sin(\alpha-\beta)}{\sin\alpha\sin\beta}\\
@@ -66,7 +66,7 @@ $\LARGE\sin\alpha+\sin\beta=\sin(\frac{\alpha+\beta}{2}+\frac{\alpha-\beta}{2})+
 
 2.2积化和差
 
-$\huge\sin\alpha\cos\beta=\frac{1}{2}[\sin(\alpha+\beta)+\sin(\alpha-\beta)]\\
+$\LARGE\sin\alpha\cos\beta=\frac{1}{2}[\sin(\alpha+\beta)+\sin(\alpha-\beta)]\\
 \cos\alpha\sin\beta=\frac{1}{2}[\sin(\alpha+\beta)-\sin(\alpha-\beta)]\\
 \cos\alpha\cos\beta=\frac{1}{2}[\cos(\alpha+\beta)+\cos(\alpha-\beta)]\\
 \sin\alpha\sin\beta=-\frac{1}{2}[\cos(\alpha+\beta)-\cos(\alpha-\beta)]$
@@ -81,7 +81,7 @@ $\LARGE\frac{1}{2}[\sin(\alpha+\beta)+\sin(\alpha-\beta)]\\
 $\mathrm{Rt}\triangle$
 
 $$
-\huge\begin{matrix}
+\LARGE\begin{matrix}
     1 & x & x^2 \\\\
     1 & y & y^2 \\\\
     1 & z & z^2 \\\\
