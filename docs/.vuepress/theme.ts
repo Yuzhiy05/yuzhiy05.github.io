@@ -7,10 +7,13 @@ export default plumeTheme({
     shiki: {
       twoslash: true,
       lineNumbers: 10,
-      languages: ["cpp", "powershell", "bash", "cmd"],
+      languages: ['cpp','powershell', 'csharp','json','cmake'],
     },
-    markdownEnhance: { demo: true, mermaid: true, },
-    markdownPower: { caniuse: true, jsfiddle: true,fileTree: true, // :::file-tree  文件树容器
+    markdownEnhance: { demo: true },
+    markdownPower: { caniuse: true, jsfiddle: true,
+      fileTree: {
+        icon: 'colored', // 'simple' | 'colored'
+      }, // :::file-tree  文件树容器
       plot: true, 
       // !!plot!! 隐秘文本
       icons: true, 

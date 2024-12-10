@@ -9,10 +9,155 @@ permalink: /article/j3e883z1/
 [下载链接](https://github.com/trcrsired/llvm-releases)   
 2.将`/.../llvm/bin`和`/.../x86_64-windows-gnu/bin` 路径添加到用户`path`
 3.安装clangd插件
-4.测试一下
-`clang++ -o hello.exe hello.cpp --target=x86_64-windows-msvc --sysroot=系统根路径 -fuse-ld=lld -D_DLL=1 -lmsvcrt  -flto=thin -stdlib=libc++`
+4.创建一个项目文件夹此处为helloproject，进入文件夹，右键打打开powershell
+5.测试clang
+`clang --version`
+测试cmake 
+`cmake --version`
+测试ninja
+`ninja --version`
 
---sysroot=D:\\workfile\\compiler\\windows-msvc-sysroot
+编写一个最简单hello.cpp文件保存
+
+首先编写CmakeLists.txt和CmakePresets.json
+
+
+```cmake
+cmake_minimum_required(VERSION 3.5.0)
+
+set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED true)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+project(hello)
+
+add_executable(hello hello.cpp)
+
+```
+
+```json
+{"version": 8,
+    "configurePresets": [
+        {
+            "name": "clang",
+            "hidden": false,
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/${presetName}",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_C_COMPILER": "D:\\workfile\\compiler\\clang\\llvm\\bin\\clang.exe",
+                "CMAKE_CXX_COMPILER": "D:\\workfile\\compiler\\clang\\llvm\\bin\\clang++.exe",
+                "CMAKE_CXX_FLAGS": "--target=x86_64-windows-gnu --sysroot=D:\\workfile\\compiler\\clang\\x86_64-windows-gnu -fuse-ld=lld  -rtlib=compiler-rt -unwindlib=libunwind  -lc++abi -lunwind -lntdll -Wno-unused-command-line-argument  -fcolor-diagnostics -stdlib=libc++",
+                "CMAKE_C_FLAGS": "--target=x86_64-windows-gnu --sysroot=D:\\workfile\\compiler\\clang\\x86_64-windows-gnu -fuse-ld=lld -rtlib=compiler-rt -unwindlib=libunwind  -lc++abi -lunwind -lntdll -Wno-unused-command-line-argument -fcolor-diagnostics "
+            }
+        }
+    ]
+}
+```
+
+在当前项目文件夹下打开powershell,或使用vscode的终端,依次输入一下命令
+
+```powershell
+cmake -Bbuild --preset clang .
+
+ninja -C build hello
+
+./hello
+```
+
+这就是完整的使用cmake和ninja的构建，并执行的过程。
+准备工作做好后
+首先开始配置vscode相关配置
+1.taskjson 
+taskjson相当于任务配置文件，而一个task任务相当于执行一个个命令行命令。把一个个命令行命令抽象成任务。
+也就是说用taskjson中的任务代替你执行上述的命令
+相比每次开始新项目时重新写taskjson，vscode支持配置默认任务。这是写在C:\Users\<用户名>\AppData\Roaming\Code\User\profiles文件中的全局任务设置。
+
+当然这里我们先选择配置任务而不是默认生成的任务，注意这个默认生成的任务是全局的.点击配置任务后，`命令面板`也就是出现的下拉框。如果之前没有配置本地任务，则会出现`使用模板创建taskjson文件`,点击后，选择`Other`后会在本地项目的文件夹下创建一个.vscode文件夹其中包含一个task.json文件。其中包含了vscode模板创建的任务一般为` echo Hello`
+
+:::file-tree
+
+- helloproject   
+  - .vscode   
+    - task.json    
+  - build    
+   - Cmakefile    
+    - ...   
+   - .ninja_deps  
+   - .ninja_log
+   - build.ninja
+   - cmake_install.cmake
+   - CmakeCache.txt
+   - hello.exe
+  - CmakeLists.txt
+  - CmakePresets.json
+  - hello.cpp
+
+:::
+首先提供以下三个最基础的代替上述命令的任务
+```json
+"version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "cmake-build",
+            "command": "cmake",
+            "args": [
+                "-Bbuild",
+                "--preset",
+                "clang",
+                "."
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "cmake构建",
+            "problemMatcher": []
+        },
+        {
+            "type": "shell",
+            "label": "ninja-make",
+            "command": "ninja ",
+            "args": [
+                "-v"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "ninja编译"
+        },
+        {
+            "label": "执行",
+            "type": "shell",
+            "command": "./hello",
+            "options": {
+                "cwd": "${workspaceFolder}/"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "执行exe",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "cmake-build",
+                "ninja-make"
+            ]
+        }
+    ]
+```
+保存task.json文件后点击vscode的任务栏的`终端`选项,点击运行任务。在出现的下拉框中点击`执行`
+$env:path.split(";")
 
 clang++ -o main.exe main.cpp --target=x86_64-windows-msvc --sysroot=D:\\workfile\\compiler\\windows-msvc-sysroot -fuse-ld=lld -D_DLL=1 -lmsvcrt  -flto=thin
 ```powershell
@@ -71,3 +216,5 @@ ninja -t clean 清除构建文件
 ninja <目标>  编译对应项目 有时你的引入的库依赖太多文件 此时只构建你的目标文件
 
 ninja  -v  详细模式构建所有目标
+
+
