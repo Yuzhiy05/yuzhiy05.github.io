@@ -82,7 +82,7 @@ taskjson相当于任务配置文件，而一个task任务相当于执行一个�
     - task.json    
   - build    
    - Cmakefile    
-    - ...   
+     - ...   
    - .ninja_deps  
    - .ninja_log
    - build.ninja
@@ -140,7 +140,7 @@ taskjson相当于任务配置文件，而一个task任务相当于执行一个�
             "type": "shell",
             "command": "./hello",
             "options": {
-                "cwd": "${workspaceFolder}/"
+                "cwd": "${workspaceFolder}/build"
             },
             "problemMatcher": [],
             "group": {
@@ -156,7 +156,23 @@ taskjson相当于任务配置文件，而一个task任务相当于执行一个�
         }
     ]
 ```
-保存task.json文件后点击vscode的任务栏的`终端`选项,点击运行任务。在出现的下拉框中点击`执行`
+保存task.json文件后点击vscode的任务栏的`终端`选项,点击运行任务。在出现的下拉框中点击`执行`。
+vscode的终端列表会按顺序执行，之前的三个任务。不过这还不够，我们需要对vscode的任务与生成的cmake做更多的定制,以便于像使用ide一样顺畅，当然我们也可以选择使用一些插件这些后续再述
+
+### 了解task.json
+[参考链接](https://code.visualstudio.com/Docs/editor/tasks)
+
+简单介绍一些每个任务的属性   
+1.label :
+2.type :
+3.command:
+4.options:
+5.problemMatcher:
+6.group:
+7.detail:
+8.dependsOrder:
+9.dependsOn:
+
 $env:path.split(";")
 
 clang++ -o main.exe main.cpp --target=x86_64-windows-msvc --sysroot=D:\\workfile\\compiler\\windows-msvc-sysroot -fuse-ld=lld -D_DLL=1 -lmsvcrt  -flto=thin
@@ -217,4 +233,4 @@ ninja <目标>  编译对应项目 有时你的引入的库依赖太多文件 �
 
 ninja  -v  详细模式构建所有目标
 
-
+ 
