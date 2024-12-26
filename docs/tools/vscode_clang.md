@@ -163,15 +163,18 @@ vscode的终端列表会按顺序执行，之前的三个任务。不过这还�
 [参考链接](https://code.visualstudio.com/Docs/editor/tasks)
 
 简单介绍一些每个任务的属性   
-1.label :
-2.type :
-3.command:
-4.options:
-5.problemMatcher:
-6.group:
-7.detail:
-8.dependsOrder:
-9.dependsOn:
+1.label :任务的名字或者任务的标签，这是自定义的
+2.type : 任务类型。通常为`shell`或`process`当然除此之外可以像vsc提供自定义任务类类型。shell为要在命令行中执行的任务，而process为需要执行的进程。
+3.command:具体的命令.command中的命令会原样传输给shell，但有时一些命令需要转义才能完成此时命令需要包含正确的引号或转义字符。
+4.args:命令的参数通常不需要特别设置，但是不同shell的转义字符不同需要进行不同设置
+5.options:覆盖一些默认值 例如 `"cwd": "${workspaceFolder}/build"`此项使得你的命令在当前工作目录下的build文件夹下执行。这对一些指令比较有用。例如ninja命令的必须在含有构建文件的夹下执行。
+存在`cwd(当前工作目录),env(环境变量),shell`
+6.problemMatcher:错误匹配，运行结果报错通常含有一大段内容。此项可以帮助你快速定位问题，通常需要手动写正则表达式。
+7.group:任务的分组通常是自定义，但是这与后续的debug配置有关。
+8.detail:显示在任务名字下方的任务的详细描述。
+9.dependsOrder:组合任务的依赖顺序，如上例一样如果此属性指定了`sequence`。那么会顺序执行dependsOn中声明的任务。
+10.dependsOn:组合任务,将已存在任务加入依赖中。通常未设置dependsOrder属性任务会并行执行。
+11.presentation:控制终端的行为。
 
 $env:path.split(";")
 
