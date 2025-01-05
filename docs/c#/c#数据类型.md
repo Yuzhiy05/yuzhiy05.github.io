@@ -164,6 +164,8 @@ var dr=dt.NewRow()
 dr["columns1"]="1";
 dr[0]="2";
 dt.Rows.Add(dr);
+//传入值数组添加行
+dt.Rows.Add(new Object[] {1, "Smith"});
 
 //使用索引或列名
 dt.Rows[0][0]="3";
@@ -200,10 +202,39 @@ private static void PrintRows(DataRow[] rows, string label)
 //删除行
 dt.Rows.Remove(dt.Rows[0]);
 dt.Rows.RomoveAt(0);//根据行索引删除
+//
 dt.Rows[0].Delete();
 dt.AcceptChanges();
+//Remove与RemoveAt 方法都是直接删除
+//但Delete方法只是把此行标记为deleted,使用RejectChanges()方法回滚之前的操作
+//批量删除时应逆序使用使用索引逆序删除，而不该用foreach，因为删除时索引会发生变化
+for(int i=dt.Rows.Count-1,i>=0;i++){
+    dt.Rows.RemoveAt(i);
+}
 
+//复制表
+var dt_new=new DataTable();
+dt_new=dt.Copy();
+//复制数据与表结构
+dt_new.ImportRow(dt.Rows[0]);//将某一行加入到行末尾
+//排序
+//表排序必须先转换为DataView
+DataView dv=dt.DefaultView;
+dv.Sort="column DESC,column ASC";
+dv.ToTable();
 ```
+
+DataView
+DataView 的主要功能是允许在 Windows 窗体和 Web 窗体上绑定数据。
+ DataView 不存储数据，而是表示其相应 DataTable的连接视图。 对 DataView数据的更改会影响 DataTable。 对 DataTable数据所做的更改将影响与之关联的所有 DataView。
+
+属性:
+Sort
+包含列名后跟`ASC`(升)或`DESC`(降序)的字符串。 默认情况下，列按升序排序。 多个列可以用逗号分隔
+
+LINQ 操作DataTable
+
+
 
 
 
