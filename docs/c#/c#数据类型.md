@@ -131,6 +131,18 @@ Merge(DataTable, Boolean, MissingSchemaAction)
 NewRow()	
 创建与该表具有相同架构的新 DataRow。
 
+Select()	
+获取由所有 DataRow 对象组成的数组。
+
+Select(String)	
+获取由与筛选条件匹配的所有 DataRow 对象组成的数组。
+
+Select(String, String)	
+以指定排序顺序，获取由与筛选条件匹配的所有 DataRow 对象组成的数组。
+
+Select(String, String, DataViewRowState)	
+以与指定状态匹配的排序顺序，获取由与筛选条件匹配的所有 DataRow 对象组成的数组。
+
 示例
 
 ```c#
@@ -161,6 +173,35 @@ var str=dt.Row[0][0].ToString();
 
 //筛选行
 //使用Select方法
+var drs=dt.Select("column ='4'");
+var drs=dt.Select("column is null");
+var drs=dt.Select("column like 'yu%'","column desc");
+var drs=dt.Select("column ='A' and column ='B'");
+//其中的提供筛选的字符串只能含有 列名 与值 和一些关系表达式 > ,< ,=,<> ...
+//可以提供一个删选表达式可以有多个筛选条件需要由 and or 连接，也可以简单的排序
+//打印数据
+private static void PrintRows(DataRow[] rows, string label)
+{
+    Console.WriteLine("\n{0}", label);
+    if(rows.Length <= 0)
+    {
+        Console.WriteLine("no rows found");
+        return;
+    }
+    foreach(DataRow row in rows)
+    {
+        foreach(DataColumn column in row.Table.Columns)
+        {
+            Console.Write("\table {0}", row[column]);
+        }
+        Console.WriteLine();
+    }
+}
+//删除行
+dt.Rows.Remove(dt.Rows[0]);
+dt.Rows.RomoveAt(0);//根据行索引删除
+dt.Rows[0].Delete();
+dt.AcceptChanges();
 
 ```
 
