@@ -15,3 +15,5 @@ dock属性控制子控件在父窗口的停靠位置；anchor属性控制子控�
 
 
 ![panel3](/images/csharp/tablelayoutPanel3.png)
+
+
