@@ -129,3 +129,38 @@ Invoke(Delegate, Object[])
 Invoke<T>(Func<T>)	
 //在拥有控件的基础窗口句柄的线程上执行指定的委托。
 ```
+
+还有一种多线程的例子
+TaskScheduler的方法
+
+TaskScheduler.FromCurrentSynchronizationContext 
+
+ui的线程调度器
+
+返回与当前同步上下文关联的调度器TaskScheduler
+与Invoke类似的是此方法也是防止在多线程中在不同的线程更新ui控件的方式
+
+Task下面其实有不同的任务调度器
+
+1.SynchronizationContextTaskScheduler UI同步上下文的任务调度器
+2.ThreadPoolTaskScheduler  线程池调度器  TaskScheduler.Default
+3.ConcurrentExclusiveSchedulerPair   自定义任务调度器
+
+例子
+```c#
+   private async void button_ClickAsync(object sender, EventArgs e)
+   {
+       // 在后台线程上执行一些工作
+       await Task.Run(() =>
+       {
+           Thread.Sleep(2000); // 模拟长时间运行的任务
+       });
+
+       // 使用 TaskScheduler.FromCurrentSynchronizationContext 在 UI 线程上更新 UI 控件
+       await Task.Factory.StartNew(() =>
+       {
+           this.textBox.Text = "任务完成";
+       }, TaskScheduler.FromCurrentSynchronizationContext());
+   }
+```
+ContinueWith 在任务执行完成后启动，回到UI线程的上下文调用控件
