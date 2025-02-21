@@ -229,6 +229,11 @@ ninja -C build 两步操作1.进入build文件夹2.编译项目
 ninja -C build <目标>同上
 
 
+
+--trace 
+CMake 3.7 添加了 --trace-source="filename" 选项，这让你可以打印出你想看的特定文件运行时执行的每一行。
+
+
 在build文件夹下
 ninja -t clean 清除构建文件  
 
