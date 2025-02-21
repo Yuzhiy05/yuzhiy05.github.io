@@ -241,4 +241,45 @@ ninja <目标>  编译对应项目 有时你的引入的库依赖太多文件 �
 
 ninja  -v  详细模式构建所有目标
 
+
+### clang 查看模板实例化
+
+ clang++  -Xclang -ast-print -fsyntax-only test.cpp --target=x86_64-windows-gnu --sysroot=D:\workfile\toolchain\compiler\x86_64-windows-gnu\x86_64-windows-gnu -fuse-ld=lld -flto=thin -rtlib=compiler-rt -stdlib=libc++ -std=c++20 >> ./test.txt
+
+输出到test.txt 通过裁剪 生成实例化文件
+
+test.cpp 文件
+ ```c++
+#include <iostream>
+
+
+void bbegin(); //起始点
+
+template<typename T>
+struct A{
+  T a;
+  T* b;
+};
+
+template <class... T> void print_(const T &...arg) {
+  (std::cout << ... << arg) << std::endl;
+}
+template <bool f, class U, class... T>
+constexpr auto sub_1(const U &val, const T &...arg) {
+  if constexpr (f)
+    return (val - ... - arg);
+  else
+    return (arg - ... - val);
+}
+void func() {
+  print_("hhh", 'k', 1);
+  auto x1 = sub_1<false>(10, 3, 5);
+ A x{1,new int{1}};
+}
+void eend();//结束点
+
+int main(){
+  func();
+}
+ ```
  

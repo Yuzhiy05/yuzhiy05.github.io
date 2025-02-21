@@ -239,6 +239,50 @@ Sort
 
 LINQ 操作DataTable
 
+DataTable 存在扩展方法的静态类DataTableExtensions 用于linq查询
+```c#
+AsDataView(DataTable)	
+创建并返回支持 LINQ 的 DataView 对象。
+
+AsDataView<T>(EnumerableRowCollection<T>)	
+创建并返回一个支持 DataView LINQ 的对象，该对象表示 LINQ to DataSet 查询。
+
+AsEnumerable(DataTable)	
+返回一个 IEnumerable<T> 对象，其泛型参数 T 为 DataRow。 此对象可用于 LINQ 表达式或方法查询。
+
+CopyToDataTable<T>(IEnumerable<T>)
+
+//
+public static System.Data.EnumerableRowCollection<System.Data.DataRow> AsEnumerable (this System.Data.DataTable source);
+```
+
+扩展方法包含在静态类中不需要实例化，首个参数使用this指针，使我们可以使用实例化的对象直接调用静态方法而不是写成`DataTableExtensions.AsEnumerable(table)`.
+table.AsAsEnumerable()将DataTable转换位对应的可枚举器 永久绑定，多次调用生成多个永久绑定的可查询对象
+
+```c#
+var group = table.AsEnumerable()
+                               .GroupBy(row => row.Field<decimal>("Price") > 500 ? "High" : "Low")
+                               .Select(group => new 
+                               { 
+                                   Range = group.Key, 
+                                   Count = group.Count() 
+                               });
+
+ var sum = table.AsEnumerable().Sum(row => row.Field<decimal>("Price"));
+
+  var query = table.AsEnumerable()
+                  .Where(row => row.Field<decimal>("Price") > 50)
+                  .OrderBy(row => row.Field<decimal>("Price"));
+
+   var selectedColumns = table.AsEnumerable()
+               .Select(row => new
+               {
+                   ProductName = row.Field<string>("ProductName"),
+                   Price = row.Field<decimal>("Price")
+               });               
+```
+
+
 
 
 
