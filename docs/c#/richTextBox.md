@@ -5,6 +5,7 @@ permalink: /article/repa8ng1/
 ---
 
 
+适用于 .NET Framework 4.8.1 以前
 
 ### 富文本框
 

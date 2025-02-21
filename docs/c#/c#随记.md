@@ -164,3 +164,7 @@ Task下面其实有不同的任务调度器
    }
 ```
 ContinueWith 在任务执行完成后启动，回到UI线程的上下文调用控件
+
+Console.WriteLine("Task Method : Task {0} is running on a thread id: {1}. Is thread pool thread: {2}",
+            name, Thread.CurrentThread.ManagedThreadId, Thread.CurrentThread.IsThreadPoolThread);
+            Thread.Sleep(TimeSpan.FromSeconds(seconds));

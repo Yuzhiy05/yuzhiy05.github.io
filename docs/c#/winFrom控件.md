@@ -17,3 +17,13 @@ dock属性控制子控件在父窗口的停靠位置；anchor属性控制子控�
 ![panel3](/images/csharp/tablelayoutPanel3.png)
 
 
+
+- chart
+  
+
+
+
+|控件|适用于|
+|----|-----|
+|chart|.NET Framework 4.8.1|
+
