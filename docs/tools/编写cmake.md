@@ -146,6 +146,8 @@ target_link_libraries(hello spdlog) 链接库
 find_pack
 
 
+cmake 安装  cmake --install . --prefix "D:\workfile\lib\abseil"
+
 
 
 
