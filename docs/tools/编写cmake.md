@@ -148,6 +148,25 @@ find_pack
 
 cmake 安装  cmake --install . --prefix "D:\workfile\lib\abseil"
 
+cmake .. -G"Ninja" -DCMAKE_CXX_COMPILER="D:\\workfile\\compiler\\clang\\llvm\\bin\\clang++.exe" -DCMAKE_SYSROOT="D:\\workfile\\compiler\\windows-msvc-sysroot" 
+
+
+cmake .. -G"Ninja" -DCMAKE_CXX_COMPILER="D:\\workfile\\compiler\\clang\\llvm\\bin\\clang++.exe" -DCMAKE_SYSROOT="D:\\workfile\\compiler\\clang\\x86_64-windows-gnu" 
+
+
+
+ -DCMAKE_C_COMPILER="C:\\workfile\\compiler\\clang\\llvm\\bin\\clang.exe" 
+
+ cmake .. -DCMAKE_TOOLCHAIN_FILE="D:/workfile/compiler/toolchaincmake/clang-toolchain.cmake"
+
+
+cmake .. -G"Ninja" -DCMAKE_TOOLCHAIN_FILE="D:/workfile/compiler/toolchaincmake/clang-toolchain.cmake"
+
+ps 删除当前文件夹下所有文件
+ Remove-Item -Recurse -Force *
+
+
+
 
 
 
