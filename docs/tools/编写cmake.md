@@ -143,7 +143,97 @@ add_executable(hello main.cpp )
 target_link_libraries(hello spdlog) 链接库
 ```
 
-find_pack
+find_libary
+
+应用于单纯的二进制包，没有配置文件，或者本地项目构建出的库.以下以本地构建的库为例
+
+:::file-tree
+
+- helloproject      
+  - build    
+   -...省略
+  - src
+   - demo1.cpp
+   - ...
+   - lib
+   - ~~mylib.dll~~(构建后生成)
+   - mylib
+    - build
+     -...构建文件(省略)  
+    - mylib.h
+    - mylib.cpp
+    - CmakeLists.txt
+  - CmakeLists.txt
+  - CmakePresets.json
+  - hello.cpp
+:::
+
+在路径helloproject/lib/CmakeLists.txt 中
+```cmake
+#设置库路径
+#指定库生成路径
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
+set(LIB_SRC ${PROJECT}/lib/mylib.cpp)
+#生成dll
+add_library(testshared SHARED ${LIB_SRC})
+#生成库的名字(也可以指定其他属性)
+set_target_properties(testshared PROPERTIES OUTPUT_NAME "test")
+```
+在路径helloproject/lib/build/中 执行命令构建目标库
+```powershell
+cmake .. -G"Ninja"  //生成构建系统 最好指定使用toolchain.cmake配置指定编译器而不是让cmake寻找编译器可能会找到意料之外编译器或版本
+cmake --build .  //单个库通常不需要指定目标
+```
+
+在路径helloproject/CmakeLists.txt 中
+```CMAKE、
+···
+#include_directories(${CMAKE_SOURCE_DIR}/mylib/) #指定头文件搜索路径
+find_library(test_path NAMES test PATHS ./lib)
+message(STATUS "库全路径为 ${test_path}")
+
+find_library (
+          <VAR>
+          name | NAMES name1 [name2 ...] [NAMES_PER_DIR]
+          [HINTS [path | ENV var]...]
+          [PATHS [path | ENV var]...]
+          [REGISTRY_VIEW (64|32|64_32|32_64|HOST|TARGET|BOTH)]
+          [PATH_SUFFIXES suffix1 [suffix2 ...]]
+          [VALIDATOR function]
+          [DOC "cache documentation string"]
+          [NO_CACHE]
+          [REQUIRED]
+          [NO_DEFAULT_PATH]
+          [NO_PACKAGE_ROOT_PATH]
+          [NO_CMAKE_PATH]
+          [NO_CMAKE_ENVIRONMENT_PATH]
+          [NO_SYSTEM_ENVIRONMENT_PATH]
+          [NO_CMAKE_SYSTEM_PATH]
+          [NO_CMAKE_INSTALL_PREFIX]
+          [CMAKE_FIND_ROOT_PATH_BOTH |
+           ONLY_CMAKE_FIND_ROOT_PATH |
+           NO_CMAKE_FIND_ROOT_PATH]
+         )
+```
+
+<VAR> :首个参数指定查找结果作为变量 (库的全路径包括后缀) 上述命令中为 test_path   当库未被找到，<var>中存放的值为`<var>-NOTFOUND`。只要<var>中的值不是`<var>-NOTFOUND`，那么即使多次调用find_library，<var>也不会再刷新
+NAMES或name: 指定一个或多个库的名字 上述命令中为 NAMES test
+[PATHS [path | ENV var]...]或[HINTS [path | ENV var]...]: 可选项 指定搜索库的路径 上述命令中为 PATHS ./lib 同时可以指定环境变量
+find_library (libvar mymath PATHS ENV TESTPATH) 指定环境变量TESTPATH 为查找路径 假设环境变量被设置为./lib
+NO_DEFAULT_PATH:如果指定了，默认搜索路径不会生效
+默认搜索路径:CMAKE_LIBRARY_ARCHITECTURE、CMAKE_PREFIX_PATH、CMAKE_LIBRARY_PATH、CMAKE_FRAMEWORK_PATH 指定的路径或
+系统环境变量（例如系统环境变量LIB和PATH定义的路径）、系统的默认的库安装路径,例如/usr、/usr/lib等
+
+
+
+
+
+
+
+
+
+
 
 
 
