@@ -156,7 +156,7 @@ find_libary
    - demo1.cpp
    - ...
    - lib
-   - ~~mylib.dll~~(构建后生成)
+   - mylib.dll(构建后生成)
    - mylib
     - build
      -...构建文件(省略)  
@@ -216,8 +216,9 @@ find_library (
            NO_CMAKE_FIND_ROOT_PATH]
          )
 ```
-
+```
 <VAR> :首个参数指定查找结果作为变量 (库的全路径包括后缀) 上述命令中为 test_path   当库未被找到，<var>中存放的值为`<var>-NOTFOUND`。只要<var>中的值不是`<var>-NOTFOUND`，那么即使多次调用find_library，<var>也不会再刷新
+```
 NAMES或name: 指定一个或多个库的名字 上述命令中为 NAMES test
 [PATHS [path | ENV var]...]或[HINTS [path | ENV var]...]: 可选项 指定搜索库的路径 上述命令中为 PATHS ./lib 同时可以指定环境变量
 find_library (libvar mymath PATHS ENV TESTPATH) 指定环境变量TESTPATH 为查找路径 假设环境变量被设置为./lib
